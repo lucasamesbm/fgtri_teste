@@ -1,0 +1,454 @@
+:root { /*Using a root for better experience and ease of changing the theme later*/
+    --color-primary: #000000;
+    --color-secondary: #ff0000;
+    --color-dark: #0f172a;
+    --color-light: #ffffff;
+    --color-gray: #e5e7eb;
+    --color-hovers: #ad2f19;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+
+* { /*Basic Reset - removing default space and making width and height caculation easier*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { /*Body style - Choosing the font family, background color and text color for standard*/
+    font-family: var(--font-primary);
+    background-color: var(--color-dark);
+    color: var(--color-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container { /*Container for page width limit */
+    max-width: 1500px;
+    margin: 0 auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 24px;
+}
+
+
+/* Styling Navbar*/
+
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    background-color: transparent;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.navbar.scrolled{
+    background-color: var(--color-primary);
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap:32px;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.navlinks {
+    display: flex;
+    list-style: none;
+    gap: 28px
+}
+
+.navlinks a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.4 ease;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+}
+
+.navlinks a:hover{
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.btn { 
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+    
+}
+
+.btn:hover {
+    background-color: var(--color-hovers);
+}
+
+/*-----*/
+
+/*Styling new section*/
+
+.hero {
+    display: flex;
+    align-items: center;
+}
+
+.hero-first {
+    background-image: url("fotos/heroimage.jpeg");
+    background-size: cover;
+    min-height: 90vh;
+    position: relative;
+    padding-top: 112px;
+}
+
+.hero-overlay {
+    position: absolute;
+    background: rgba(10, 20, 30, 0.7);
+    inset: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 58px;
+    color: white;
+}
+
+.hero-left {
+    max-width: 600px;
+}
+
+.hero-right {
+    max-width: 460px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.10;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: var(--color-secondary);
+}
+
+.hero-right p {
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--color-light);
+    margin-bottom: 24px;
+}
+
+.hero-options {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-temporada {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 12px;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-calendar {
+    background-color: var(--color-secondary);
+}
+
+.btn-federar {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+}
+
+/*-----*/
+/*Cards*/
+
+.cards {
+    position: relative;
+    background-color: var(--color-light);
+}
+.cards-set {
+    display: flex;
+    gap: 32px;
+    transform: translateY(-80px);
+}
+
+.card {
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.card a {
+    margin-top: auto;
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+}
+
+/*-----*/
+/*A Federação*/
+
+.hero-federacao{
+    background-color: var(--color-light);
+}
+
+.fotofederacao {
+    height: 400px;
+}
+
+.hero-federacao-content{
+    gap:100px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.hero-left-federacao {
+    max-width: 750px;
+}
+
+.hero-right-federacao{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    max-width: 750px;
+}
+
+.hero-right-federacao h2{
+    line-height: 1.2;
+}
+.hero-right-federacao h3{
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    padding: 6px 12px;
+}
+
+.hero-right-federacao p{
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+/*-----*/
+/*Cards for events*/
+
+
+.container-provas{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.title-section{
+    color: var(--color-light);
+    width: 100%; 
+    margin-bottom: 32px;
+}
+
+.provas{
+    background-color: var(--color-primary);
+    padding: 40px 0;
+}
+
+.provas-org{
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.cardprova{
+    background-color: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 380px;
+    width: 100%;
+}
+
+.cardprova img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.card-content .data{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.card-content h2{
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--color-dark);
+}
+
+.loc{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.container-provas-btn{
+    justify-content: center;
+    margin-top: 48px;
+}
+/*------*/
+
+.section-divider{
+    width: 100%;
+    line-height: 0;
+    background-color: var(--color-light);
+    margin-top: -5px
+}
+
+.section-divider img{
+    width: 100%;
+    display: block;
+}
+
+/*Parceiros*/
+
+.parceiros{
+    color: var(--color-primary);
+    background-color: var(--color-light);
+    padding-top: 10px;
+    padding-bottom: 80px;}
+
+.container-parceiros{
+    display: flex;
+    flex-direction: column;
+}
+
+.cards-parceiros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    padding-top: 50px;
+}
+
+.logo-parceiro{
+    height: 110px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+}
+
+.logo-parceiro:hover{
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.container-parceiros h1{
+    font-size: 2rem
+}
+/*-----*/
+/*Footer*/
+
+.footer{
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding-top: 50px;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 45px;
+}
+
+.footer-col{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+}
+
+.footer-logo{
+    height: 180;
+    width: auto;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px;
+}
+
+.footer-col ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col ul li{
+    font-size: 15px;
+    color: var(--color-gray);
+}
+.footer-col ul li img{
+    justify-content: center;
+}
+
+.footer-col ul li a{
+    text-decoration: none;
+    color: var(--color-gray);
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: var(--color-secondary);
+}
+
+.footer-bottom{
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p{
+    font-size: 14px;
+    color: var(--color-gray);
+}
+
+.footer-col ul li span{
+    color: var(--color-secondary);
+}
