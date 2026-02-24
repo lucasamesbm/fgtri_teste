@@ -1,17 +1,44 @@
+import { motion } from "framer-motion"
 import provaImg from "../../assets/images/fotorun_bw.jpg"
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const card = {
+  hidden: {
+    opacity: 0,
+    x: -60,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+}
 
 function Provas() {
   return (
     <section className="bg-primary py-16 font-montserrat overflow-hidden">
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-6">
 
-        {/* Título */}
         <h1 className="text-light text-3xl mb-8 font-bold">
           PRÓXIMAS PROVAS
         </h1>
 
-        {/* Cards */}
-        <div
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
           className="
             flex gap-6
             overflow-x-auto scroll-smooth
@@ -24,8 +51,9 @@ function Provas() {
           "
         >
           {[1, 2, 3].map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={card}
               className="
                 bg-light flex flex-col overflow-hidden
                 min-w-70 max-w-[320px]
@@ -40,7 +68,6 @@ function Provas() {
               />
 
               <div className="p-6 flex flex-col gap-2">
-
                 <p className="text-secondary text-sm font-bold">
                   25 MAIO 2024
                 </p>
@@ -59,13 +86,11 @@ function Provas() {
                 >
                   Ver detalhes
                 </a>
-
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Botão final */}
         <div className="flex justify-center mt-12">
           <a
             href="#"

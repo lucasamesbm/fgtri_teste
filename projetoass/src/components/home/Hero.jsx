@@ -1,67 +1,113 @@
+import { motion } from "framer-motion"
 import heroImage from "../../assets/images/heroimage.jpeg"
 
-function Hero() {
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.15 },
+  },
+}
+
+const itemDesktop = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+}
+
+const itemMobile = {
+  hidden: { opacity: 0, x: -40 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+}
+
+export default function Hero() {
   return (
     <section
-      className="relative min-h-[90vh] flex items-center pt-28 bg-cover bg-center"
-      style={{ backgroundImage: `url(${heroImage})` }}
-    >
-      {/* Overlay */}
+        className="relative h-[calc(100vh-96px)] mt-24 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
       <div className="absolute inset-0 bg-[rgba(10,20,30,0.7)]" />
 
-      {/* Container central */}
-      <div className="relative z-10 mx-auto max-w-screen-2xl w-full px-4 lg:px-6 font-montserrat">
+      <div className="relative z-10 mx-auto max-w-screen-2xl px-4 lg:px-6 h-full">
         
-        {/* Conteúdo */}
-        <div
-          className="
-            flex flex-col lg:flex-row
-            gap-12 lg:gap-20
-            text-white
-            items-start lg:items-center
-            justify-start lg:justify-center
-          "
-        >
-          {/* Lado esquerdo */}
-          <div className="max-w-xl text-left">
-            <span className="inline-block mb-4 px-4 py-1 border border-secondary text-secondary text-sm font-semibold tracking-wider">
-              TEMPORADA 2026 ABERTA
-            </span>
+        {/* CONTROLE DE POSIÇÃO */}
+       <div className="flex h-full items-end pb-20 lg:items-center lg:justify-center lg:pb-0">
+          
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={container}
+            className="
+  w-full max-w-7xl mx-auto
+  flex flex-col lg:flex-row
+  gap-12 lg:gap-20
+  text-white
 
-            <h1 className="font-bold leading-tight text-[clamp(2.5rem,5vw,4rem)]">
-              SUPERE SEUS <br />
-              <span className="text-secondary">LIMITES</span> NO <br />
-              SUL.
-            </h1>
-          </div>
+  items-start lg:items-center
+  justify-center
+  text-left
+"
+          >
+            {/* ESQUERDA */}
+            <motion.div
+              variants={itemMobile}
+              className="max-w-xl lg:hidden"
+            >
+              <span className="inline-block mb-4 px-4 py-1 border border-secondary text-secondary text-sm font-semibold tracking-wider">
+                TEMPORADA 2026 ABERTA
+              </span>
 
-          {/* Lado direito */}
-          <div className="max-w-lg text-left">
-            <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
-              A <b>Federação Gaúcha de Triathlon</b> une atletas, técnica e paixão
-              para elevar o esporte no Rio Grande do Sul ao nível mundial.
-            </p>
+              <h1 className="font-bold leading-tight text-[clamp(2.5rem,5vw,4rem)]">
+                SUPERE SEUS <br />
+                <span className="text-secondary">LIMITES</span> NO <br />
+                SUL.
+              </h1>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#"
-                className="bg-secondary text-white px-6 py-3 font-bold tracking-wide hover:bg-hovers transition"
-              >
-                Ver Calendário
-              </a>
+            <motion.div
+              variants={itemDesktop}
+              className="hidden lg:block max-w-xl"
+            >
+              <span className="inline-block mb-4 px-4 py-1 border border-secondary text-secondary text-sm font-semibold tracking-wider">
+                TEMPORADA 2026 ABERTA
+              </span>
 
-              <a
-                href="#"
-                className="border-2 border-white px-6 py-3 font-bold tracking-wide hover:bg-white hover:text-black transition"
-              >
-                Federar-se
-              </a>
-            </div>
-          </div>
+              <h1 className="font-bold leading-tight text-[clamp(2.5rem,5vw,4rem)]">
+                SUPERE SEUS <br />
+                <span className="text-secondary">LIMITES</span> NO <br />
+                SUL.
+              </h1>
+            </motion.div>
+
+            {/* DIREITA */}
+            <motion.div
+              variants={itemDesktop}
+              className="max-w-lg"
+            >
+              <p className="text-lg leading-relaxed mb-6">
+                A <b>Federação Gaúcha de Triathlon</b> une atletas, técnica e paixão
+            para elevar o esporte no Rio Grande do Sul ao nível mundial.
+              </p>
+
+              <div className="flex gap-4 flex-col sm:flex-row">
+                <a className="bg-secondary px-6 py-3 font-bold text-white">
+                  Ver Calendário
+                </a>
+                <a className="border-2 border-white px-6 py-3 font-bold">
+                  Federar-se
+                </a>
+              </div>
+            </motion.div>
+
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
-
-export default Hero
