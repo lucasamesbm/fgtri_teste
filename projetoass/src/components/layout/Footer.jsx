@@ -7,10 +7,8 @@ function Footer() {
 
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-6 pb-12">
 
-        {/* Conteúdo principal */}
         <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
 
-          {/* Logo */}
           <div className="flex justify-center lg:justify-start">
             <img
               src={logo}
@@ -19,10 +17,8 @@ function Footer() {
             />
           </div>
 
-          {/* Links + Contato */}
           <div className="grid grid-cols-2 gap-10 lg:flex lg:gap-20">
 
-            {/* Links */}
             <div className="flex flex-col">
               <h4 className="text-lg font-bold tracking-wide pb-3">
                 Links Rápidos
@@ -36,7 +32,6 @@ function Footer() {
               </ul>
             </div>
 
-            {/* Contato */}
             <div className="flex flex-col">
               <h4 className="text-lg font-bold tracking-wide pb-3">
                 Contato
@@ -64,7 +59,6 @@ function Footer() {
 
       </div>
 
-      {/* Linha inferior */}
       <div className="border-t border-white/10 py-5 text-center px-4">
         <p className="text-sm text-gray-400">
           © 2026 Federação Gaúcha de Triathlon. Todos os direitos reservados.

@@ -36,7 +36,6 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-screen-2xl px-4 lg:px-6 h-full">
         
-        {/* CONTROLE DE POSIÇÃO */}
        <div className="flex h-full items-end pb-20 lg:items-center lg:justify-center lg:pb-0">
           
           <motion.div
@@ -44,17 +43,17 @@ export default function Hero() {
             animate="show"
             variants={container}
             className="
-  w-full max-w-7xl mx-auto
-  flex flex-col lg:flex-row
-  gap-12 lg:gap-20
-  text-white
+            w-full max-w-7xl mx-auto
+            flex flex-col lg:flex-row
+            gap-12 lg:gap-20
+            text-white
 
-  items-start lg:items-center
-  justify-center
-  text-left
-"
+            items-start lg:items-center
+            justify-center
+            text-left
+          "
           >
-            {/* ESQUERDA */}
+
             <motion.div
               variants={itemMobile}
               className="max-w-xl lg:hidden"
@@ -84,8 +83,7 @@ export default function Hero() {
                 SUL.
               </h1>
             </motion.div>
-
-            {/* DIREITA */}
+            
             <motion.div
               variants={itemDesktop}
               className="max-w-lg"
