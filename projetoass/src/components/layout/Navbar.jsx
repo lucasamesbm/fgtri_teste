@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/images/logo_FGTRI_branco.png";
+import estatutoPDF from "../../assets/pdf/2013-ESTATUTO-NOVO-2013.pdf";
+import { Link } from "react-router-dom";
 
 const mobileMenu = {
   hidden: {
@@ -36,9 +38,12 @@ function Navbar() {
         <div className="hidden lg:flex items-center gap-8">
           <ul className="flex gap-7 font-bold text-light text-base tracking-wider uppercase">
             <li>
-              <a href="#" className="hover:text-secondary transition-colors">
+              <Link
+                to="/"
+                className="hover:text-secondary transition-colors"
+              >
                 Início
-              </a>
+              </Link>
             </li>
 
             <li className="relative group">
@@ -48,12 +53,17 @@ function Navbar() {
 
               <ul className="absolute top-full left-0 mt-4 w-56 bg-primary p-4 rounded-md shadow-lg flex flex-col gap-3 text-md font-medium opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                 <li>
-                  <a href="#" className="hover:text-secondary">
+                  <Link to="/diretoria" className="hover:text-secondary">
                     Diretoria
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-secondary">
+                  <a
+                    href={estatutoPDF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-secondary"
+                  >
                     Estatuto
                   </a>
                 </li>
