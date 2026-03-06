@@ -1,14 +1,14 @@
 import MainLayout from "../layouts/MainLayout";
 import Federar from "../components/layout/Federar";
-import DiretoriaSection from "../components/diretoria/Diretoria";
+import EquipeItens from "../components/equipe/Equipe";
 
-function Diretoria() {
+function EquipePages() {
   return (
     <MainLayout>
       <Federar />
-      <DiretoriaSection />
+      <EquipeItens />
     </MainLayout>
-  );
+  )
 }
 
-export default Diretoria;
+export default EquipePages;

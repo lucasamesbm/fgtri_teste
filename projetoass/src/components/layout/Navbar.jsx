@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/images/logo_FGTRI_branco.png";
 import estatutoPDF from "../../assets/pdf/2013-ESTATUTO-NOVO-2013.pdf";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const mobileMenu = {
   hidden: {
@@ -29,31 +29,43 @@ const mobileMenu = {
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-primary">
       <div className="mx-auto max-w-screen-2xl flex items-center justify-between px-4 lg:px-6 py-4 font-montserrat">
-        <img src={logo} alt="FGTRI logo" className="h-16 lg:h-22" />
+        <img src={logo} href="/" alt="FGTRI logo" className="h-16 lg:h-22" />
 
         <div className="hidden lg:flex items-center gap-8">
           <ul className="flex gap-7 font-bold text-light text-base tracking-wider uppercase">
             <li>
               <Link
                 to="/"
-                className="hover:text-secondary transition-colors"
+                className={`hover:text-secondary transition-colors ${
+                  isActive("/") ? "text-secondary" : ""
+                }`}
               >
                 Início
               </Link>
             </li>
 
             <li className="relative group">
-              <span className="cursor-pointer hover:text-secondary transition-colors">
+              <span className="cursor-pointer transition-colors">
                 Federação
               </span>
 
               <ul className="absolute top-full left-0 mt-4 w-56 bg-primary p-4 rounded-md shadow-lg flex flex-col gap-3 text-md font-medium opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                 <li>
-                  <Link to="/diretoria" className="hover:text-secondary">
+                  <Link
+                    to="/diretoria"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/diretoria") ? "text-secondary" : ""
+                    }`}
+                  >
                     Diretoria
                   </Link>
                 </li>
@@ -68,15 +80,23 @@ function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-secondary">
+                  <Link
+                    to="/equipes"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/equipes") ? "text-secondary" : ""
+                    }`}
+                  >
                     Equipes
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a href="#" className="hover:text-secondary">
-                    Federar-se
-                  </a>
-                </li>
+                <Link
+                  to="/federarse"
+                  className={`hover:text-secondary transition-colors ${
+                    isActive("/federarse") ? "text-secondary" : ""
+                  }`}
+                >
+                  Federar-se
+                </Link>
               </ul>
             </li>
 
@@ -178,9 +198,14 @@ function Navbar() {
           >
             <ul className="flex flex-col gap-5 font-bold text-light text-base tracking-wider pt-6 px-6 uppercase">
               <li>
-                <a onClick={() => setMenuOpen(false)} href="#">
+                <Link
+                  to="/"
+                  className={`hover:text-secondary transition-colors ${
+                    isActive("/") ? "text-secondary" : ""
+                  }`}
+                >
                   Início
-                </a>
+                </Link>
               </li>
 
               <li>
@@ -188,17 +213,41 @@ function Navbar() {
 
                 <ul className="mt-4 ml-4 flex flex-col gap-4 text-sm font-medium">
                   <li>
-                    <a href="#">Diretoria</a>
+                    <Link
+                      to="/diretoria"
+                      className={`hover:text-secondary transition-colors ${
+                        isActive("/diretoria") ? "text-secondary" : ""
+                      }`}
+                    >
+                      Diretoria
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Estatuto</a>
+                    <a
+                      href={estatutoPDF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-secondary"
+                    >
+                      Estatuto
+                    </a>
                   </li>
-                  <li>
-                    <a href="#">Equipes</a>
-                  </li>
-                  <li>
-                    <a href="#">Federar-se</a>
-                  </li>
+                  <Link
+                    to="/equipes"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/equipes") ? "text-secondary" : ""
+                    }`}
+                  >
+                    Equipes
+                  </Link>
+                  <Link
+                    to="/federarse"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/federarse") ? "text-secondary" : ""
+                    }`}
+                  >
+                    Federar-se
+                  </Link>
                 </ul>
               </li>
 
