@@ -124,9 +124,11 @@ function DiretoriaSection() {
     },
   ];
 
-  const MembroCard = ({ membro }) => (
+  const MembroCard = ({ membro, isSmallMobile = false }) => (
     <div className="flex flex-col items-center gap-4">
-      <div className="w-48 h-48 md:w-56 md:h-56 rounded-xl border-4 border-light bg-light shadow-xl shadow-black/20 flex items-center justify-center p-2">
+      <div
+        className={`${isSmallMobile ? "w-36 h-36" : "w-48 h-48"} md:w-56 md:h-56 rounded-xl border-4 border-light bg-light shadow-xl shadow-black/20 flex items-center justify-center p-2`}
+      >
         <div className="w-full h-full overflow-hidden rounded-lg">
           <img
             src={membro.imagem || Dummy}
@@ -141,7 +143,9 @@ function DiretoriaSection() {
         <span className="block text-sm sm:text-base font-semibold text-secondary">
           {membro.cargo}
         </span>
-        <span className="text-xs sm:text-sm text-black font-semibold mt-1">
+        <span
+          className={`${isSmallMobile ? "text-[10px]" : "text-xs"} sm:text-sm text-black font-semibold mt-1`}
+        >
           {membro.nome}
         </span>
       </div>
@@ -184,9 +188,13 @@ function DiretoriaSection() {
             TRIBUNAL DE JUSTIÇA DESPORTIVA
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-12 justify-items-center">
             {tribunal.map((membro) => (
-              <MembroCard key={membro.id} membro={membro} />
+              <MembroCard
+                key={membro.id}
+                membro={membro}
+                isSmallMobile={true}
+              />
             ))}
           </div>
         </div>

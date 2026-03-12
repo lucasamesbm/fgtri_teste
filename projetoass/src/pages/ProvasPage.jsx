@@ -1,14 +1,14 @@
 import MainLayout from "../layouts/MainLayout";
 import Federar from "../components/layout/Federar";
-import EquipeItens from "../components/equipe/Equipe";
+import Provas from "../components/provas/Provas";
 
-function EquipePages() {
+function ProvasPage() {
   return (
     <MainLayout>
       <Federar />
-      <EquipeItens />
+      <Provas />
     </MainLayout>
   );
 }
 
-export default EquipePages;
+export default ProvasPage;

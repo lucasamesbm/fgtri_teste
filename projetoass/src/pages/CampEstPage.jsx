@@ -1,14 +1,14 @@
 import MainLayout from "../layouts/MainLayout";
 import Federar from "../components/layout/Federar";
-import EquipeItens from "../components/equipe/Equipe";
+import Camp from "../components/campestadual/Campestadual";
 
-function EquipePages() {
+function CampEstadualPage() {
   return (
     <MainLayout>
       <Federar />
-      <EquipeItens />
+      <Camp />
     </MainLayout>
   );
 }
 
-export default EquipePages;
+export default CampEstadualPage;

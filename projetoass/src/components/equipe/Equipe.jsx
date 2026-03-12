@@ -80,7 +80,7 @@ function Equipes() {
     <section className="w-full px-4 py-12 bg-gray-100 md:py-16">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-center text-2xl font-semibold tracking-widest mb-12 md:mb-16 lg:text-3xl text-black">
-          EQUIPES FILIADAS
+          EQUIPES FEDERADAS
         </h1>
 
         <div className="flex flex-col gap-10 md:gap-16">

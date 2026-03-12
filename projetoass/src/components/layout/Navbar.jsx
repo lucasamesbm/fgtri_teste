@@ -106,29 +106,41 @@ function Navbar() {
               </span>
 
               <ul className="absolute top-full left-0 mt-4 w-56 bg-primary p-4 rounded-md shadow-lg flex flex-col gap-3 text-md font-medium opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <li>
-                  <a href="#" className="hover:text-secondary">
-                    Taxas
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-secondary">
-                    Campeonato Estadual
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-secondary">
-                    Regras de Competição
-                  </a>
-                </li>
+                <Link
+                  to="/taxas"
+                  className={`hover:text-secondary transition-colors ${
+                    isActive("/taxas") ? "text-secondary" : ""
+                  }`}
+                >
+                  Taxas
+                </Link>
+                <Link
+                  to="/campeonato_estadual"
+                  className={`hover:text-secondary transition-colors ${
+                    isActive("/campeonato_estadual") ? "text-secondary" : ""
+                  }`}
+                >
+                  Campeonato Estadual
+                </Link>
+                <Link
+                  to="/regras_de_competicao"
+                  className={`hover:text-secondary transition-colors ${
+                    isActive("/regras_de_competicao") ? "text-secondary" : ""
+                  }`}
+                >
+                  Regras de Competição
+                </Link>
               </ul>
             </li>
 
-            <li>
-              <a href="#" className="hover:text-secondary transition-colors">
-                Calendário
-              </a>
-            </li>
+            <Link
+              to="/calendario"
+              className={`hover:text-secondary transition-colors ${
+                isActive("/calendario") ? "text-secondary" : ""
+              }`}
+            >
+              Calendário
+            </Link>
 
             <li className="relative group">
               <span className="cursor-pointer hover:text-secondary transition-colors">
@@ -255,21 +267,41 @@ function Navbar() {
                 <span>Regulamento</span>
 
                 <ul className="mt-4 ml-4 flex flex-col gap-4 text-sm font-medium">
-                  <li>
-                    <a href="#">Taxas</a>
-                  </li>
-                  <li>
-                    <a href="#">Campeonato Estadual</a>
-                  </li>
-                  <li>
-                    <a href="#">Regras de Competição</a>
-                  </li>
+                  <Link
+                    to="/taxas"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/taxas") ? "text-secondary" : ""
+                    }`}
+                  >
+                    Taxas
+                  </Link>
+                  <Link
+                    to="/campeonato_estadual"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/campeonato_estadual") ? "text-secondary" : ""
+                    }`}
+                  >
+                    Campeonato Estadual
+                  </Link>
+                  <Link
+                    to="/regras_de_competicao"
+                    className={`hover:text-secondary transition-colors ${
+                      isActive("/regras_de_competicao") ? "text-secondary" : ""
+                    }`}
+                  >
+                    Regras de Competição
+                  </Link>
                 </ul>
               </li>
 
-              <li>
-                <a href="#">Calendário</a>
-              </li>
+              <Link
+                to="/calendario"
+                className={`hover:text-secondary transition-colors ${
+                  isActive("/calendario") ? "text-secondary" : ""
+                }`}
+              >
+                Calendário
+              </Link>
               <li>
                 <span>Resultados</span>
 
